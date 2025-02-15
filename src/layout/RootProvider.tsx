@@ -9,9 +9,23 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { QueryClient, QueryClientProvider, QueryCache, MutationCache } from '@tanstack/react-query';
 import { Session } from '../interfaces/global.interface';
 import { globalTheme } from '../configs/theme.config';
+import { createTheme, ThemeProvider, Button } from '@mui/material';
+
+const theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: '8px',
+        },
+      },
+    },
+  },
+});
 
 export interface RootProviderProps {
-  session: Session | null;
+  session?: Session | null;
 }
 
 export default function RootProvider({ children }: React.PropsWithChildren<RootProviderProps>) {
@@ -37,7 +51,9 @@ export default function RootProvider({ children }: React.PropsWithChildren<RootP
       <QueryClientProvider client={queryClient}>
         <AntdRegistry>
           <StyleProvider layer>
-            <ConfigProvider theme={globalTheme}>{children}</ConfigProvider>
+            <ConfigProvider theme={globalTheme}>
+              <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            </ConfigProvider>
             <ToastContainer limit={3} />
           </StyleProvider>
         </AntdRegistry>
