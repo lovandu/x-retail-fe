@@ -7,9 +7,8 @@ import { StyleProvider } from '@ant-design/cssinjs';
 import { MutableSnapshot, RecoilRoot } from 'recoil';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { QueryClient, QueryClientProvider, QueryCache, MutationCache } from '@tanstack/react-query';
-import { Session } from '../interfaces/global.interface';
-import { globalTheme } from '../configs/theme.config';
 import { createTheme, ThemeProvider, Button } from '@mui/material';
+import { globalTheme } from '@/src/configs/theme.config';
 
 const theme = createTheme({
   components: {
@@ -25,7 +24,7 @@ const theme = createTheme({
 });
 
 export interface RootProviderProps {
-  session?: Session | null;
+  // session?: Session | null;
 }
 
 export default function RootProvider({ children }: React.PropsWithChildren<RootProviderProps>) {

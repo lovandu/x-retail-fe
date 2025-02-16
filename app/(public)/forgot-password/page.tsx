@@ -1,4 +1,4 @@
-import ForgotPassword from '@/src/views/auth/ForgotPassword';
+import ForgotPassword from '@/src/components/auth/ForgotPassword';
 
 export default function Login() {
   return (

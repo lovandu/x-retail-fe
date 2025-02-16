@@ -4,9 +4,9 @@ export type Routers = typeof routers;
 
 const routers = {
   home: {
-    router: '/home',
-    pattern: '/home',
-    private: false,
+    router: '/',
+    pattern: '/',
+    private: true,
     role: undefined,
   },
   login: {
@@ -27,6 +27,32 @@ const routers = {
     private: false,
     role: undefined,
   },
+  goodsReceipt: {
+    router: '/goods-receipt',
+    pattern: '/goods-receipt',
+    private: true,
+    role: undefined,
+  },
+  goodsShipping: {
+    router: '/goods-shipping',
+    pattern: '/goods-shipping',
+    private: true,
+    role: undefined,
+  },
+  revenueExpense: {
+    router: '/revenue-expense',
+    pattern: '/revenue-expense',
+    private: true,
+    role: undefined,
+  },
+  report: {
+    router: '/report',
+    pattern: '/report',
+    private: true,
+    role: undefined,
+  },
+
+
 } satisfies Record<string, IRouter>;
 
 export default routers;
